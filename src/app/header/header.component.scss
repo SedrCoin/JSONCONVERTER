@@ -1,0 +1,10 @@
+$border: #0000001a;
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: solid $border;
+  height: 60px;
+}

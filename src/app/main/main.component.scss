@@ -1,0 +1,36 @@
+.main {
+  margin: 10px 20px;
+  padding: 20px 40px;
+}
+
+textarea {
+  width: 400px;
+  resize: none;
+  height: 250px;
+  margin-top: 10px;
+}
+
+table tbody td:first-of-type {
+  width: 30px;
+}
+
+.cell-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  & span {
+    line-height: 46px;
+  }
+}
+
+button {
+  margin-top: 10px;
+}
+.btn-icon {
+  border: none;
+  background-color: white;
+}
+
+input {
+  width: 400px;
+}

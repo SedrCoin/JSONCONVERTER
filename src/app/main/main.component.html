@@ -1,0 +1,59 @@
+<main class="main">
+  <div class="form" *ngIf="showText">
+    <textarea
+      [(ngModel)]="userInput"
+      class="form-control rounded-lg"
+    ></textarea>
+
+    <button (click)="getData()" [disabled]="!userInput" class="btn btn-primary">
+      Continue
+    </button>
+  </div>
+
+  <div class="table-wrapper" *ngIf="showTable">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th></th>
+          <th *ngFor="let colName of columnNames" scope="col">
+            {{ colName }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>
+            <button class="btn-icon" (click)="onDeleteCell(user)">X</button>
+          </td>
+          <td *ngFor="let colName of columnNames">
+            <div class="cell-wrapper">
+              <span>{{ user[colName] }}</span>
+              <button class="btn-icon" (click)="onEditCell(user, colName)">
+                ✎
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="toJSON()" class="btn btn-primary">To JSON!</button>
+  </div>
+
+  <ng-container *ngIf="isInEditMode">
+    <label for="input"> Edit the {{ selectedColumn }} value</label>
+    <input
+      class="form-control"
+      id="input"
+      *ngIf="isInEditMode"
+      type="text"
+      #editInput
+    />
+    <button class="btn btn-success" (click)="onSaveValue()">Готово</button>
+  </ng-container>
+
+  <div class="toJson" *ngIf="jsonConvert">
+    <textarea class="text-output form-control rounded-lg" [(ngModel)]="json">
+ {{ json }} </textarea
+    >
+  </div>
+</main>
